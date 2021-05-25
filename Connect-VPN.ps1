@@ -1,3 +1,7 @@
+#NOTE: You need to authenticate your particular VPN auth mechanism before here; i.e. if myKey based, do your Entrust login first.
+#You could always uncomment out the next line if that is the case for you; to at least trigger the Entrust prompt
+#start "C:\Program Files (x86)\Common Files\Entrust\ESP\eesystry.exe"
+
 #Adjust as needed
 $VPNHost = "your.VPN.host.gc.ca"
 
