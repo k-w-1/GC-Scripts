@@ -1,2 +1,8 @@
 # GC-Scripts
-A collection of PowerShell scripts that might be useful for the occasional public servant.
+A collection of PowerShell scripts that might occasionally be useful for the odd public servant.
+
+If you're lucky/smart enough to have KeePass, you can launch scripts using a 'url' of `cmd://powershell -executionpolicy bypass -File ".\relative\or\absolute\path\to.ps1"`, or you can make a desktop/start menu shortcut to `powershell` and the parameters `-executionpolicy bypass -File ".\relative\or\absolute\path\to.ps1"`. If it makes sense, you might be able to setup a scheduled task to run these. 
+
+* [Connect-VPN.ps1](./Connect-VPN.ps1) - Originally setup to perform several VPN-connection tasks, now almost a bit of a general purpose startup script; handles WiFi, VPN, and Web Content Filter login.
+* [Check-CDSJobs.ps1](./Check-CDSJobs.ps1) - Scrapes available jobs at the [Canadian Digital Service](https://digital.canada.ca/join-our-team/), since somehow they're not included in the [jobs.gc.ca](https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&toggleLanguage=en) postings. 
+* [Kill-FlowForever.ps1](./Kill-FlowForever.ps1) - Ok, so perhaps this is not such a complicated script that I need to post it here; but perhaps just for awareness. On my workstation, I noticed that Flow.exe from Adobe was eating tons of CPU cycles; and also seemed to cause FireFox to lag. Some initial research pointed to it being some glitch with language input methods, but I found the best thing to do was simply kill the Flow.exe process. Unfortunately it seems to be re-spawned by some unknown mechanism, so this script simply checks for it by process name every 5 seconds and kills it on sight.
