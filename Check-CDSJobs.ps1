@@ -1,5 +1,11 @@
+# Check-CDSJobs
+# A purpose-built tool to keep track of job postings at the Canadian Digital Service!
+# Kevin White | 2021-01-15 | https://github.com/k-w-1/
+
+#Create an HTMLFile COM object to work with
 $HTML = New-Object -Com "HTMLFile"
 
+#Load up the CDS careers page
 #Unknown reason (protected by CloudFlare?), but Invoke-WebRequest craps out for digital.canada.ca; below works a treat (and may even be faster?)
 #Later note: probably I just needed -UseBasicParsing for IWR, but this works anyway.
 $HTML.IHTMLDocument2_write((New-Object Net.WebClient).DownloadString("https://digital.canada.ca/careers/"))
@@ -17,5 +23,4 @@ $list | ft
 $list | Out-GridView -Title "CDS Jobs" -PassThru |
 
 #after the Grid, only selected items + OK (vs cancel) will be passed to below for launching
-#% { "URL = " + $_.URL } #todo: debug
 % { start $_.URL }
