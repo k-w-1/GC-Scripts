@@ -33,7 +33,7 @@ if($status.Count -gt 0) {
 
         Write-Host "Setting path to Python and for Az (also convienently adds pip)."
         #not sure why, but for some reason the trailing slash gets trimmed, so it's doubled to compensate.
-        & "setx" ("path `"%path%;$pypath\;$pypath\Scripts\\`"").Split(" ")
+        & "setx" @("path", "`"%path%;$pypath\;$pypath\Scripts\\`"")
     } catch {
         Write-Error "Setup failed successfully!"
     }
