@@ -16,6 +16,10 @@ $HTML.body.getElementsByClassName("job-posting-link") | % { $_.href = "https://d
 #get only the parts we want, and name the prop's better
 $list = $HTML.body.getElementsByClassName("job-posting-link") | select-object -property @{N='Title';E={$_.innerText}}, @{N='URL';E={$_.href}}
 
+if($null -eq $list) {
+    Write-Warning "Either there are no jobs currently posted, or CDS has updated their page and this scrape is broken."
+}
+
 #debug
 $list | ft
 
